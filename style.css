@@ -1,0 +1,258 @@
+:root {
+  --primary-color: rgb(51, 196, 208);
+  --secondary-color: rgb(110, 155, 197);
+  --background-color: rgb(237, 240, 245);
+  --text-color: rgb(51, 51, 51);
+  --heading-color: rgb(121, 133, 151);
+  --font-family: sans-serif;
+  --font-size-regular: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color);
+  height: 100vh;
+  width: 100vw;
+  font-family: var(--font-family);
+  font-size: var(--font-size-regular);
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 80vw;
+  min-width: min-content;
+  height: 85vh;
+  display: grid;
+  grid-template-columns: minmax(min-content, 300px) minmax(min-content, 1fr);
+  grid-template-rows: 100%;
+  align-items: flex-start;
+  justify-content: flex-start;
+  grid-column-gap: 25px;
+}
+
+.container>* {
+  background-color: white;
+  border-radius: 5px;
+}
+
+.container .profile-card {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 15px 0px;
+}
+
+.container .profile-card .card-info {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container .profile-card .card-info img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.container .profile-card .card-info h3 {
+  margin-bottom: 5px;
+  color: var(--heading-color);
+}
+
+.container .profile-card .card-info span {
+  color: var(--secondary-color);
+}
+
+.container .profile-card .card-info .btns {
+  height: 50px;
+  width: calc((2 * (75px + 5px)));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container .profile-card .card-info .btns>* {
+  color: #eee;
+  border-radius: 15px;
+  width: 75px;
+  padding: 6px 10px;
+  vertical-align: middle;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.container .profile-card .card-info .btns .btn-follow {
+  background-color: var(--primary-color);
+}
+
+.container .profile-card .card-info .btns .btn-message {
+  background-color: rgb(231, 77, 89);
+}
+
+.container .profile-card .card-tabs {
+  width: 100%;
+  height: fit-content;
+}
+
+.container .profile-card .card-tabs>* {
+  width: 100%;
+  height: 20px;
+  padding: 20px 15px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  color: var(--primary-color);
+  text-decoration: none;
+  position: relative;
+}
+
+.container .profile-card .card-tabs>:last-child {
+  margin-bottom: 0;
+}
+
+.container .profile-card .card-tabs .card-tab i {
+  margin-right: 10px;
+}
+
+.container .profile-card .card-tabs .card-tab:hover {
+  color: var(--secondary-color);
+  background-color: var(--background-color);
+}
+
+.container .profile-card .card-tabs .card-tab.active {
+  color: var(--secondary-color);
+  background-color: var(--background-color);
+}
+
+.container .profile-card .card-tabs .card-tab.active::before {
+  content: "";
+  width: 3px;
+  height: 100%;
+  background-color: var(--secondary-color);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+.container .profile-main {
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  color: var(--text-color);
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: max-content max-content 1fr;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.container .profile-main::-webkit-scrollbar,
+.container .profile-main .main-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.container .profile-main,
+.container .profile-main .main-content{
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.container .profile-main h3 {
+  margin-bottom: 15px;
+}
+
+.container .profile-main .main-tabs {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid gainsboro;
+}
+
+.container .profile-main .main-tabs .main-tab {
+  position: relative;
+  font-size: 14px;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.container .profile-main .main-tabs .main-tab:not(:last-child) {
+  margin-right: 15px;
+}
+
+.container .profile-main .main-tabs .main-tab:hover {
+  color: var(--primary-color);
+}
+
+.container .profile-main .main-tabs .main-tab.active {
+  color: var(--primary-color);
+}
+
+.container .profile-main .main-tabs .main-tab.active::before {
+  content: "";
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary-color);
+  position: absolute;
+  bottom: calc(-5px - 3px + 2px); /* padding of tabs + height of before element - height of border*/
+  left: 0;
+}
+
+.container .profile-main .main-content {
+  height: 100%;
+  overflow: scroll;
+}
+
+.container .profile-main .main-content .form-input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.container .profile-main form .form-input input,
+.container .profile-main form .form-input textarea {
+  width: 100%;
+  margin-top: 5px;
+  padding: 5px 10px;
+  text-align: left;
+  vertical-align: middle;
+  border: 2px solid var(--primary-color);
+  outline-color: var(--secondary-color);
+}
+
+.container .profile-main form .form-input input:focus::placeholder,
+.container .profile-main form .form-input textarea:focus::placeholder {
+  color: transparent;
+}
+
+
+
+
+
+
+
+
+
+
+
